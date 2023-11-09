@@ -27,13 +27,15 @@ public class GamePanel extends JPanel {
         this.walls = walls;
         addMouseListener(mouseInputs);
         addMouseMotionListener(mouseInputs);
-        player = new Player(200,300,60,60,this,0,0);
+        player = new Player(200,300,60,58,this,0,0);
         gameTimer = new Timer();
         gameTimer.schedule(new TimerTask() {
 
 
             @Override
             public void run() {
+                // LOGICA DAS ANIMAÇÕES A FAZER
+                // LOGICA DE MOVIMENTO E COLISÃO DO PERSONAGEM
                 player.set();
                 repaint();
             }

@@ -6,12 +6,13 @@ import Inputs.KeyChecker;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class GameFrame extends JFrame {
     ArrayList<Wall> walls = WallGenerator.generateWalls();
 
-    public GameFrame(){
+    public GameFrame() throws IOException {
         GamePanel gamePanel = new GamePanel(walls);
         gamePanel.setLocation(0,0);
         gamePanel.setSize(this.getSize());

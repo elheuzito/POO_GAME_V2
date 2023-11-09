@@ -80,6 +80,6 @@ public class Player extends Entidade{
         hitbox.y = y;
     }
     public void draw(Graphics2D gtd){
-        gtd.drawImage(img,x,y,32,32,null);
+        gtd.drawImage(img,x,y,64,64,null);
     }
 }

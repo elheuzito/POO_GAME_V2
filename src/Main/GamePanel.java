@@ -27,8 +27,7 @@ public class GamePanel extends JPanel {
         this.walls = walls;
         addMouseListener(mouseInputs);
         addMouseMotionListener(mouseInputs);
-        //makeWalls();
-        player = new Player(200,300,64,64,this,0,0);
+        player = new Player(200,300,60,60,this,0,0);
         gameTimer = new Timer();
         gameTimer.schedule(new TimerTask() {
 
@@ -41,19 +40,7 @@ public class GamePanel extends JPanel {
         },0,17);
     }
 
-//    private void makeWalls() {
-//        for(int i=32;i < 1600;i+=32){
-//            walls.add(new Wall(i,900-64,32,32));
-//        }
-//        walls.add(new Wall(50,550,32,32));
-//        walls.add(new Wall(50,500,32,32));
-//        walls.add(new Wall(50,450,32,32));
-//        walls.add(new Wall(600,450,32,32));
-//        walls.add(new Wall(600,550,32,32));
-//        walls.add(new Wall(600,500,32,32));
-//        walls.add(new Wall(450,550,32,32));
-//
-//    }
+
 
     public void paint(Graphics g){
         super.paint(g);

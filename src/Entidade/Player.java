@@ -138,13 +138,13 @@ public class Player extends Entidade{
     }
     public void draw(Graphics2D gtd){
         if(running_right){
-        gtd.drawImage(animations_run[aniIndex],x,y,60,60,null);
+        gtd.drawImage(animations_run[aniIndex],x,y,58,60,null);
         }
         if(runnnig_left){
-            gtd.drawImage(animations_run_flipped[aniIndex],x,y,60,60,null);
+            gtd.drawImage(animations_run_flipped[aniIndex],x,y,58,60,null);
         }
         if(idle){
-            gtd.drawImage(animations_idle[aniIndex],x,y,60,60,null);
+            gtd.drawImage(animations_idle[aniIndex],x,y,58,60,null);
         }
 }
 }

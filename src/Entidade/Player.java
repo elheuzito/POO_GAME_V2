@@ -2,17 +2,29 @@ package Entidade;
 
 import Main.GamePanel;
 import Main.Main;
+import utils.LoadSave;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 
 public class Player extends Entidade{
     private GamePanel gamePanel;
     Rectangle hitbox;
-    BufferedImage img;
+
+
+    BufferedImage[]  animations_idle;
+    BufferedImage[]  animations_run;
+
+    BufferedImage[] animations_run_flipped;
+
+    boolean running_right,runnnig_left, idle;
+
+
+    private int aniTick, aniIndex, aniSpeed = 25;
 
 
     public boolean keyLeft;
@@ -25,13 +37,58 @@ public class Player extends Entidade{
         hitbox = new Rectangle(x,y,width,height);
         loadSprite();
     }
-    public void loadSprite() throws IOException {
-        String path = "C:\\Users\\PICHAU\\IdeaProjects\\plataformerv2\\src\\extra\\teste.png";
-        File file = new File(path);
-        img = ImageIO.read(file);
+    public void loadSprite() {
+        BufferedImage img = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_IDLE);
+        BufferedImage img2 = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_RUN);
+        BufferedImage img3 = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_RUN_LEFT);
+
+        animations_idle = new BufferedImage[6];
+        for(int i = 0; i < animations_idle.length;i++){
+            animations_idle[i] = img.getSubimage(0,i*32,32,32);
+        }
+        animations_run = new BufferedImage[10];
+        for(int i = 0; i < animations_idle.length;i++){
+            animations_run[i] = img2.getSubimage(0,i*32,32,32);
+        }
+        animations_run_flipped = new BufferedImage[10];
+        for(int i = 0; i < animations_idle.length;i++){
+            animations_run_flipped[i] = img3.getSubimage(0,i*32,32,32);
+        }
+
+
+
+    }
+    private void updateAnimationTick() {
+        aniTick++;
+        if(aniTick >= aniSpeed){
+            aniTick = 0;
+            aniIndex++;
+            if(aniIndex >= 6){
+                aniIndex = 0;
+            }
+        }
     }
 
+    private void setAnimation() {
+        if(xspeed > 0){
+            running_right = true;
+            runnnig_left = false;
+            idle = false;
+        } else if (xspeed < 0) {
+            runnnig_left = true;
+            running_right = false;
+            idle = false;
+        } else if (xspeed == 0 && yspeed == 0){
+            idle = true;
+            running_right = false;
+            runnnig_left = false;
+        }
+    }
+
+
     public void set() {
+        setAnimation();
+        updateAnimationTick();
         if(keyLeft && keyRight || !keyLeft && !keyRight) xspeed *= 0.7;
         else if (keyLeft && !keyRight) xspeed--;
         else if (keyRight && !keyLeft) xspeed++;
@@ -80,6 +137,14 @@ public class Player extends Entidade{
         hitbox.y = y;
     }
     public void draw(Graphics2D gtd){
-        gtd.drawImage(img,x,y,64,64,null);
-    }
+        if(running_right){
+        gtd.drawImage(animations_run[aniIndex],x,y,60,60,null);
+        }
+        if(runnnig_left){
+            gtd.drawImage(animations_run_flipped[aniIndex],x,y,60,60,null);
+        }
+        if(idle){
+            gtd.drawImage(animations_idle[aniIndex],x,y,60,60,null);
+        }
+}
 }

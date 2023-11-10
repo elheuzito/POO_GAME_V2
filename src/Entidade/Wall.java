@@ -12,7 +12,7 @@ public class Wall {
         this.width = width;
         hitbox = new Rectangle(x,y,width,height);
     }
-
+    // Está responsavel pela parte visual do bloco Wall.
     public void draw(Graphics2D gtd){
         gtd.setColor(Color.BLACK);
         gtd.drawRect(x,y,width,height);

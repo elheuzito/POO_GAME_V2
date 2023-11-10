@@ -37,6 +37,7 @@ public class Player extends Entidade{
         hitbox = new Rectangle(x,y,width,height);
         loadSprite();
     }
+    // Carregando os sprites em um Array, e colocando cada frame do sprite em uma posiçaõ do array.
     public void loadSprite() {
         BufferedImage img = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_IDLE);
         BufferedImage img2 = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_RUN);
@@ -58,6 +59,7 @@ public class Player extends Entidade{
 
 
     }
+    // Metódo para atualizar o sprite do personagem.
     private void updateAnimationTick() {
         aniTick++;
         if(aniTick >= aniSpeed){
@@ -68,7 +70,7 @@ public class Player extends Entidade{
             }
         }
     }
-
+    // Lógica para saber em qual direção o personagem está indo
     private void setAnimation() {
         if(xspeed > 0){
             running_right = true;
@@ -85,7 +87,7 @@ public class Player extends Entidade{
         }
     }
 
-
+    // Método que atualiza a lógica do personagem.
     public void set() {
         setAnimation();
         updateAnimationTick();
@@ -100,7 +102,7 @@ public class Player extends Entidade{
         if(xspeed < -8) xspeed = -8;
 
         if(keyUp){
-            // Checar se estar no chão
+            // Checar se o personagem tocou no chão
             hitbox.y++;
             for(Wall wall: gamePanel.walls){
                 if(wall.hitbox.intersects(hitbox)) yspeed = -8;
@@ -136,6 +138,8 @@ public class Player extends Entidade{
         hitbox.x = x;
         hitbox.y = y;
     }
+
+    // Método que renderiza o personagem a partir da lógica adequada.
     public void draw(Graphics2D gtd){
         if(running_right){
         gtd.drawImage(animations_run[aniIndex],x,y,58,60,null);

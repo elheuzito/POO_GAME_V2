@@ -21,6 +21,7 @@ public class GamePanel extends JPanel {
     Player player;
     // TIME
     Timer gameTimer;
+    // Onde as Classes são instanciadas, criando objetos.
     public GamePanel(ArrayList<Wall> walls) throws IOException {
         // ADICIONANDOS OS INPUTS
         mouseInputs = new MouseInputs(this);
@@ -28,6 +29,7 @@ public class GamePanel extends JPanel {
         addMouseListener(mouseInputs);
         addMouseMotionListener(mouseInputs);
         player = new Player(200,300,60,58,this,0,0);
+        // RESPONSAVEL PELO LOOP DO JOGO.
         gameTimer = new Timer();
         gameTimer.schedule(new TimerTask() {
 
@@ -43,14 +45,14 @@ public class GamePanel extends JPanel {
     }
 
 
-
+    // RESPONSAVEL PELA RENDERIZAÇÃO EM TELA NO PAINEL
     public void paint(Graphics g){
         super.paint(g);
         Graphics2D gtd = (Graphics2D) g;
         player.draw(gtd);
         for(Wall wall:walls) wall.draw(gtd);
     }
-
+    // INTERFACES RESPONSAVEIS PELOS INPUTS DO PLAYER.
     public void keyPressed(KeyEvent e) {
         if(e.getKeyChar()=='a') player.keyLeft = true;
         if(e.getKeyChar()=='d') player.keyRight = true;

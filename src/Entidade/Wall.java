@@ -10,7 +10,7 @@ public class Wall {
         this.y = y;
         this.height = height;
         this.width = width;
-        hitbox = new Rectangle(x,y,width,height);
+        hitbox = new Rectangle(x-3,y,width-3,height);
     }
     // Está responsavel pela parte visual do bloco Wall.
     public void draw(Graphics2D gtd){

@@ -14,6 +14,7 @@ import java.io.IOException;
 public class Player extends Entidade{
     private GamePanel gamePanel;
     Rectangle hitbox;
+    int vida;
 
 
     BufferedImage[]  animations_idle;
@@ -24,7 +25,7 @@ public class Player extends Entidade{
     boolean running_right,runnnig_left, idle;
 
 
-    private int aniTick, aniIndex, aniSpeed = 25;
+    private int aniTick, aniIndex, aniSpeed = 12;
 
 
     public boolean keyLeft;
@@ -34,7 +35,8 @@ public class Player extends Entidade{
     public Player(int x, int y, int height, int width, GamePanel gamePanel, double xpeed, double yspeed) throws IOException {
         super(x, y, height, width, gamePanel,xpeed,yspeed);
         this.gamePanel = gamePanel;
-        hitbox = new Rectangle(x,y,width,height);
+        vida = 3;
+        hitbox = new Rectangle(x-10,y,width-10,height);
         loadSprite();
     }
     // Carregando os sprites em um Array, e colocando cada frame do sprite em uma posiçaõ do array.
@@ -142,13 +144,13 @@ public class Player extends Entidade{
     // Método que renderiza o personagem a partir da lógica adequada.
     public void draw(Graphics2D gtd){
         if(running_right){
-        gtd.drawImage(animations_run[aniIndex],x,y,58,60,null);
+        gtd.drawImage(animations_run[aniIndex],x,y,60,60,null);
         }
         if(runnnig_left){
-            gtd.drawImage(animations_run_flipped[aniIndex],x,y,58,60,null);
+            gtd.drawImage(animations_run_flipped[aniIndex],x,y,60,60,null);
         }
         if(idle){
-            gtd.drawImage(animations_idle[aniIndex],x,y,58,60,null);
+            gtd.drawImage(animations_idle[aniIndex],x,y,60,60,null);
         }
 }
 }

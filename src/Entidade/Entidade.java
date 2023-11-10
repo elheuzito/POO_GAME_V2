@@ -5,6 +5,10 @@ import Main.GamePanel;
 import java.awt.*;
 
 public abstract class Entidade {
+    public int getX() {
+        return x;
+    }
+
     protected int x,y;
     protected int height, width;
     protected double xspeed, yspeed;

@@ -19,7 +19,8 @@ public abstract class Entidade {
 
     protected int y;
     protected int height, width;
-    protected double xspeed, yspeed;
+    public double xspeed;
+    protected double yspeed;
 
 
 

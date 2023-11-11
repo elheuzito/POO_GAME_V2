@@ -11,6 +11,11 @@ public class LoadSave {
 
     public static final String PLAYER_RUN_LEFT = "ChikBoy_run_left.png";
 
+    public static final String CANVAS1 = "1.png";
+    public static final String CANVAS2 = "2.png";
+    public static final String CANVAS3 = "3.png";
+    public static final String CANVAS4 = "4.png";
+
 
 
 

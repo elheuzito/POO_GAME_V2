@@ -4,6 +4,7 @@ import Entidade.Player;
 import Entidade.Projetil;
 import Entidade.Wall;
 import Inputs.MouseInputs;
+import utils.LoadSave;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -56,9 +57,14 @@ public class GamePanel extends JPanel {
     public void paint(Graphics g){
         super.paint(g);
         Graphics2D gtd = (Graphics2D) g;
+        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS1),0,0,1600,900,null);
+        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS2),0,0,1600,900,null);
+        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS3),0+((int)player.xspeed / 8),0,1600,900,null);
+        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS4),0,0,1600,900,null);
         player.draw(gtd);
-        projetil.drawProjetil(gtd);
-        projetil1.drawProjetil(gtd);
+//        projetil.drawProjetil(gtd);
+//        projetil1.drawProjetil(gtd);
+
         for(Wall wall:walls) wall.draw(gtd);
     }
     // INTERFACES RESPONSAVEIS PELOS INPUTS DO PLAYER.

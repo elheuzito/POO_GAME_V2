@@ -26,6 +26,8 @@ public class GamePanel extends JPanel {
     public GamePanel(ArrayList<Wall> walls) throws IOException {
         // ADICIONANDOS OS INPUTS
         mouseInputs = new MouseInputs(this);
+        addMouseListener(mouseInputs);
+        addMouseMotionListener(mouseInputs);
         this.walls = walls;
         projetil = new Projetil(0,0,10,500,30,30);
         projetil1 = new Projetil(0,0,10,800,30,30);
@@ -75,5 +77,12 @@ public class GamePanel extends JPanel {
     }
     public int getPlayerx(){
         return player.getX();
+    }
+
+    public Object getPlayery() { return player.getY();
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }

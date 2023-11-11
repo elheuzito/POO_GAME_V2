@@ -26,6 +26,7 @@ public class Projetil {
         x += xspeed;
 
     }
+    
 
     public void drawProjetil(Graphics2D gtd) {
         gtd.setColor(Color.DARK_GRAY);

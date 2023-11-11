@@ -6,6 +6,7 @@ import utils.LoadSave;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -38,6 +39,7 @@ public class Player extends Entidade{
         vida = 3;
         hitbox = new Rectangle(x-10,y,width-10,height);
         loadSprite();
+
     }
     // Carregando os sprites em um Array, e colocando cada frame do sprite em uma posiçaõ do array.
     public void loadSprite() {
@@ -86,6 +88,14 @@ public class Player extends Entidade{
             idle = true;
             running_right = false;
             runnnig_left = false;
+        }
+    }
+    public void impulse(MouseEvent e){
+        if(e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() <= 2){
+            if(keyUp){
+                yspeed = -8;
+                keyUp = false;
+            }
         }
     }
 

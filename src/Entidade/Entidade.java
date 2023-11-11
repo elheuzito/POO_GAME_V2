@@ -5,11 +5,19 @@ import Main.GamePanel;
 import java.awt.*;
 
 public abstract class Entidade {
+
+
+    protected int x;
+
     public int getX() {
         return x;
     }
 
-    protected int x,y;
+    public int getY() {
+        return y;
+    }
+
+    protected int y;
     protected int height, width;
     protected double xspeed, yspeed;
 

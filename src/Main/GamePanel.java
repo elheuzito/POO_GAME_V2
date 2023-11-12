@@ -46,11 +46,12 @@ public class GamePanel extends JPanel {
             public void run() {
                 // LOGICA DAS ANIMAÇÕES A FAZER
                 // LOGICA DE MOVIMENTO E COLISÃO DO PERSONAGEM
-                projetil.projetilSet();
-                projetil1.projetilSet();
+//                projetil.projetilSet();
+//                projetil1.projetilSet();
+                player.set();
                 for(Wall wall : walls) {wall.set(cameraX);}
                 background.set();
-                player.set();
+
                 repaint();
             }
         },0,17);
@@ -73,8 +74,6 @@ public class GamePanel extends JPanel {
 //        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS3),0+((int)player.xspeed / 8),0,1600,900,null);
         //gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS4),0,0,1600,900,null);
         player.draw(gtd);
-        projetil.drawProjetil(gtd);
-        projetil1.drawProjetil(gtd);
 
         for(Wall wall:walls) wall.draw(gtd);
         background.draw(gtd);

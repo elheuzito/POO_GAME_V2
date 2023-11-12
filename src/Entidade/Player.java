@@ -33,8 +33,8 @@ public class Player extends Entidade{
     public boolean keyRight;
     public boolean keyUp;
     public boolean keyDown;
-    public Player(int x, int y, int height, int width, GamePanel gamePanel, double xpeed, double yspeed) throws IOException {
-        super(x, y, height, width, gamePanel,xpeed,yspeed);
+    public Player(int x, int y, int height, int width, GamePanel gamePanel, double xspeed, double yspeed) throws IOException {
+        super(x, y, height, width, gamePanel,xspeed,yspeed);
         this.gamePanel = gamePanel;
         vida = 3;
         hitbox = new Rectangle(x-10,y,width-10,height);
@@ -113,8 +113,8 @@ public class Player extends Entidade{
         if(xspeed > 0 && xspeed < 0.75) xspeed = 0;
         if(xspeed < 0 && xspeed > -0.75) xspeed = 0;
 
-        if(xspeed > 8) xspeed = 8;
-        if(xspeed < -8) xspeed = -8;
+        if(xspeed > 8) xspeed = 7;
+        if(xspeed < -8) xspeed = -7;
 
         if(keyUp){
             // Checar se o personagem tocou no chão
@@ -149,6 +149,7 @@ public class Player extends Entidade{
         }
 
         gamePanel.cameraX += xspeed;
+//        System.out.println(" teste "+gamePanel.cameraX);
         y += yspeed;
         hitbox.x = x;
         hitbox.y = y;

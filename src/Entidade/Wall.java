@@ -15,14 +15,14 @@ public class Wall {
         this.y = y;
         this.height = height;
         this.width = width;
-        hitbox = new Rectangle(x-3,y,width-3,height+2);
+        hitbox = new Rectangle(x,y,width-1,height+2);
     }
     // Está responsavel pela parte visual do bloco Wall.
     public void draw(Graphics2D gtd){
         gtd.setColor(Color.BLACK);
         gtd.drawRect(x,y,width,height);
         gtd.setColor(Color.WHITE);
-        gtd.fillRect(x+1,y+1,width-2,height-2);
+        gtd.fillRect(x,y,width,height);
     }
     public int set(int cameraX){
         x = startX - cameraX;

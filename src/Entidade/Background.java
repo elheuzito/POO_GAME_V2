@@ -28,7 +28,11 @@ public class Background {
 
     }
     public void set(){
-        cameraX -= (int) gamePanel.getPlayer().xspeed;
+        cameraX -=  (int)gamePanel.getPlayer().xspeed;
+//        if(gamePanel.getPlayer().xspeed < 0){
+//            cameraX = cameraX + 1;
+//        }
+        System.out.println("cameraX: " + cameraX);
 
    }
    public void reset(){

@@ -33,8 +33,6 @@ public class GamePanel extends JPanel {
         addMouseListener(mouseInputs);
         addMouseMotionListener(mouseInputs);
         this.walls = walls;
-        projetil = new Projetil(0,0,10,500,30,30);
-        projetil1 = new Projetil(0,0,10,800,30,30);
         player = new Player(800,300,60,58,this,0,0);
         background = new Background(0,0,900,3200,this);
         // RESPONSAVEL PELO LOOP DO JOGO.
@@ -49,8 +47,8 @@ public class GamePanel extends JPanel {
 //                projetil.projetilSet();
 //                projetil1.projetilSet();
                 player.set();
-                for(Wall wall : walls) {wall.set(cameraX);}
                 background.set();
+                for(Wall wall : walls) {wall.set(cameraX);}
 
                 repaint();
             }

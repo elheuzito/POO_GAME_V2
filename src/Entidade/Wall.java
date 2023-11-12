@@ -19,10 +19,10 @@ public class Wall {
     }
     // Está responsavel pela parte visual do bloco Wall.
     public void draw(Graphics2D gtd){
-        gtd.setColor(Color.BLACK);
-        gtd.drawRect(x,y,width,height);
-        gtd.setColor(Color.WHITE);
-        gtd.fillRect(x,y,width,height);
+//        gtd.setColor(Color.lightGray);
+//        gtd.drawRect(x,y,width,height);
+//        gtd.setColor(Color.WHITE);
+//        gtd.fillRect(x,y,width,height);
     }
     public int set(int cameraX){
         x = startX + cameraX;

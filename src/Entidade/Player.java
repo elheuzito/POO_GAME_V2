@@ -91,7 +91,7 @@ public class Player extends Entidade{
         }
     }
     public void impulse(MouseEvent e){
-        if(e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() <= 2){
+        if(e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() <= 1 ){
             if(keyUp){
                 yspeed = -8;
                 keyUp = false;
@@ -106,7 +106,7 @@ public class Player extends Entidade{
         }
         setAnimation();
         updateAnimationTick();
-        if(keyLeft && keyRight || !keyLeft && !keyRight) xspeed *= 0.7;
+        if(keyLeft && keyRight || !keyLeft && !keyRight) xspeed *= 0.8;
         else if (keyLeft && !keyRight) xspeed--;
         else if (keyRight && !keyLeft) xspeed++;
 

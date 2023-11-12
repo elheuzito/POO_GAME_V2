@@ -10,7 +10,7 @@ public class WallGenerator {
 
 
 
-        walls.add(new Wall(350,753,200,532));
+        walls.add(new Wall(350,753,200,531));
         walls.add(new Wall(-10,32,900,32));
 
         walls.add(new Wall(400,802,32,32));

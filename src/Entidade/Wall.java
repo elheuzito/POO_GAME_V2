@@ -15,7 +15,7 @@ public class Wall {
         this.y = y;
         this.height = height;
         this.width = width;
-        hitbox = new Rectangle(x,y,width-1,height+2);
+        hitbox = new Rectangle(x,y,width,height+2);
     }
     // Está responsavel pela parte visual do bloco Wall.
     public void draw(Graphics2D gtd){
@@ -25,7 +25,7 @@ public class Wall {
         gtd.fillRect(x,y,width,height);
     }
     public int set(int cameraX){
-        x = startX - cameraX;
+        x = startX + cameraX;
         hitbox.x = x;
 
         return x;

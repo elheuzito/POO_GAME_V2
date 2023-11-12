@@ -132,8 +132,9 @@ public class Player extends Entidade{
                 hitbox.x -= xspeed;
                 while(!wall.hitbox.intersects(hitbox)) hitbox.x += Math.signum(xspeed);
                 hitbox.x -= Math.signum(xspeed);
+                gamePanel.cameraX += x - hitbox.x;
                 xspeed = 0;
-                x = hitbox.x;
+                hitbox.x = x;
             }
         }
         // Vertical
@@ -148,7 +149,7 @@ public class Player extends Entidade{
             }
         }
 
-        gamePanel.cameraX += xspeed;
+        gamePanel.cameraX -= (int) xspeed;
 //        System.out.println(" teste "+gamePanel.cameraX);
         y += yspeed;
         hitbox.x = x;

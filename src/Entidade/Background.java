@@ -23,16 +23,12 @@ public class Background {
         background = LoadSave.GetSpriteAtlas(LoadSave.CANVAS_GLOBAL);
     }
     public void draw(Graphics2D gtd){
-        gtd.drawImage(background,x + cameraX,y,width,height,null);
+        gtd.drawImage(background,x + cameraX ,y,width,height,null);
 
 
     }
     public void set(){
         cameraX -=  (int)gamePanel.getPlayer().xspeed;
-//        if(gamePanel.getPlayer().xspeed < 0){
-//            cameraX = cameraX + 1;
-//        }
-        System.out.println("cameraX: " + cameraX);
 
    }
    public void reset(){

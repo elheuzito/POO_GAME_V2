@@ -7,7 +7,7 @@ import java.awt.*;
 public abstract class Entidade {
 
 
-    protected int x;
+    public int x;
 
     public int getX() {
         return x;
@@ -17,10 +17,10 @@ public abstract class Entidade {
         return y;
     }
 
-    protected int y;
+    public int y;
     protected int height, width;
     public double xspeed;
-    protected double yspeed;
+    public double yspeed;
 
 
 

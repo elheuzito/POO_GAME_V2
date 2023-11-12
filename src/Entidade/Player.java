@@ -101,6 +101,9 @@ public class Player extends Entidade{
 
     // Método que atualiza a lógica do personagem.
     public void set() {
+        if(y > 900){
+            gamePanel.reset();
+        }
         setAnimation();
         updateAnimationTick();
         if(keyLeft && keyRight || !keyLeft && !keyRight) xspeed *= 0.7;
@@ -145,7 +148,7 @@ public class Player extends Entidade{
             }
         }
 
-        x += xspeed;
+        gamePanel.cameraX += xspeed;
         y += yspeed;
         hitbox.x = x;
         hitbox.y = y;

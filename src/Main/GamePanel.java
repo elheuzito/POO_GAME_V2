@@ -20,6 +20,7 @@ public class GamePanel extends JPanel {
     //public ArrayList<Wall> walls = new ArrayList<>();
     public ArrayList<Wall> walls;
     Player player;
+    public int cameraX;
     // TIME
     Timer gameTimer;
     Projetil projetil,projetil1;
@@ -34,7 +35,7 @@ public class GamePanel extends JPanel {
         projetil1 = new Projetil(0,0,10,800,30,30);
 //        addMouseListener(mouseInputs);
 //        addMouseMotionListener(mouseInputs);
-        player = new Player(200,300,60,58,this,0,0);
+        player = new Player(800,300,60,58,this,0,0);
         // RESPONSAVEL PELO LOOP DO JOGO.
         gameTimer = new Timer();
         gameTimer.schedule(new TimerTask() {
@@ -46,12 +47,19 @@ public class GamePanel extends JPanel {
                 // LOGICA DE MOVIMENTO E COLISÃO DO PERSONAGEM
                 projetil.projetilSet();
                 projetil1.projetilSet();
+                for(Wall wall : walls) {wall.set(cameraX);}
                 player.set();
                 repaint();
             }
         },0,17);
     }
-
+    public void reset(){
+        player.x = 800;
+        player.y = 300;
+        player.xspeed = 0;
+        player.yspeed = 0;
+        cameraX = 0;
+    }
 
     // RESPONSAVEL PELA RENDERIZAÇÃO EM TELA NO PAINEL
     public void paint(Graphics g){
@@ -60,7 +68,7 @@ public class GamePanel extends JPanel {
         gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS1),0,0,1600,900,null);
         gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS2),0,0,1600,900,null);
         gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS3),0+((int)player.xspeed / 8),0,1600,900,null);
-        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS4),0,0,1600,900,null);
+        //gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS4),0,0,1600,900,null);
         player.draw(gtd);
 //        projetil.drawProjetil(gtd);
 //        projetil1.drawProjetil(gtd);

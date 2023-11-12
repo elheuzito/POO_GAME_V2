@@ -7,6 +7,7 @@ import Entidade.Wall;
 import Inputs.MouseInputs;
 import utils.LoadSave;
 
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
@@ -18,14 +19,13 @@ import javax.swing.*;
 
 public class GamePanel extends JPanel {
     private MouseInputs mouseInputs;
-    //public ArrayList<Wall> walls = new ArrayList<>();
     public ArrayList<Wall> walls;
     Player player;
     public int cameraX;
     Background background;
     // TIME
     Timer gameTimer;
-    Projetil projetil,projetil1;
+    //Projetil projetil,projetil1;
     // Onde as Classes são instanciadas, criando objetos.
     public GamePanel(ArrayList<Wall> walls) throws IOException {
         // ADICIONANDOS OS INPUTS
@@ -67,8 +67,8 @@ public class GamePanel extends JPanel {
     public void paint(Graphics g){
         super.paint(g);
         Graphics2D gtd = (Graphics2D) g;
-//        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS1),0,0,1600,900,null);
-//        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS2),0,0,1600,900,null);
+        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS1),0,0,1600,900,null);
+        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS2),0,0,1600,900,null);
 //        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS3),0+((int)player.xspeed / 8),0,1600,900,null);
         //gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS4),0,0,1600,900,null);
         player.draw(gtd);

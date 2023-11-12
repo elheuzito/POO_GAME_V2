@@ -1,6 +1,6 @@
 package Entidade;
 
-import Main.GamePanel;
+
 
 import java.awt.*;
 
@@ -17,12 +17,12 @@ public class Wall {
         this.width = width;
         hitbox = new Rectangle(x,y,width,height+2);
     }
-    // Está responsavel pela parte visual do bloco Wall.
+     //Está responsavel pela parte visual do bloco Wall.
     public void draw(Graphics2D gtd){
-//        gtd.setColor(Color.lightGray);
-//        gtd.drawRect(x,y,width,height);
-//        gtd.setColor(Color.WHITE);
-//        gtd.fillRect(x,y,width,height);
+        gtd.setColor(Color.lightGray);
+        gtd.drawRect(x,y,width,height);
+        gtd.setColor(Color.WHITE);
+        gtd.fillRect(x,y,width,height);
     }
     public int set(int cameraX){
         x = startX + cameraX;

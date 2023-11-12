@@ -1,5 +1,6 @@
 package Main;
 
+import Entidade.Background;
 import Entidade.Player;
 import Entidade.Projetil;
 import Entidade.Wall;
@@ -21,6 +22,7 @@ public class GamePanel extends JPanel {
     public ArrayList<Wall> walls;
     Player player;
     public int cameraX;
+    Background background;
     // TIME
     Timer gameTimer;
     Projetil projetil,projetil1;
@@ -33,9 +35,8 @@ public class GamePanel extends JPanel {
         this.walls = walls;
         projetil = new Projetil(0,0,10,500,30,30);
         projetil1 = new Projetil(0,0,10,800,30,30);
-//        addMouseListener(mouseInputs);
-//        addMouseMotionListener(mouseInputs);
         player = new Player(800,300,60,58,this,0,0);
+        background = new Background(0,0,900,3200,this);
         // RESPONSAVEL PELO LOOP DO JOGO.
         gameTimer = new Timer();
         gameTimer.schedule(new TimerTask() {
@@ -48,6 +49,7 @@ public class GamePanel extends JPanel {
                 projetil.projetilSet();
                 projetil1.projetilSet();
                 for(Wall wall : walls) {wall.set(cameraX);}
+                background.set();
                 player.set();
                 repaint();
             }
@@ -59,21 +61,23 @@ public class GamePanel extends JPanel {
         player.xspeed = 0;
         player.yspeed = 0;
         cameraX = 0;
+        background.reset();
     }
 
     // RESPONSAVEL PELA RENDERIZAÇÃO EM TELA NO PAINEL
     public void paint(Graphics g){
         super.paint(g);
         Graphics2D gtd = (Graphics2D) g;
-        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS1),0,0,1600,900,null);
-        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS2),0,0,1600,900,null);
-        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS3),0+((int)player.xspeed / 8),0,1600,900,null);
+//        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS1),0,0,1600,900,null);
+//        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS2),0,0,1600,900,null);
+//        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS3),0+((int)player.xspeed / 8),0,1600,900,null);
         //gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS4),0,0,1600,900,null);
         player.draw(gtd);
-//        projetil.drawProjetil(gtd);
-//        projetil1.drawProjetil(gtd);
+        projetil.drawProjetil(gtd);
+        projetil1.drawProjetil(gtd);
 
         for(Wall wall:walls) wall.draw(gtd);
+        background.draw(gtd);
     }
     // INTERFACES RESPONSAVEIS PELOS INPUTS DO PLAYER.
     public void keyPressed(KeyEvent e) {

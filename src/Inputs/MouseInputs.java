@@ -19,6 +19,9 @@ public class MouseInputs implements MouseListener, MouseMotionListener {
     public void mouseClicked(MouseEvent e) {
         player = gamePanel.getPlayer();
         player.impulse(e);
+        playerx = e.getX();
+        playery = e.getY();
+        System.out.println("X : "+playerx +"<br> Y: "+playery);
     }
 
     @Override

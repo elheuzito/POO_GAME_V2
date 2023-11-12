@@ -1,11 +1,14 @@
 package Entidade;
 
+import Main.GamePanel;
+
 import java.awt.*;
 
 public class Wall {
     int x, y, height, width;
     int startX;
     Rectangle hitbox;
+
     public Wall(int x, int y, int height, int width){
         startX = x;
         this.x = x;

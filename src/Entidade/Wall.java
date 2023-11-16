@@ -29,5 +29,6 @@ public class Wall {
         hitbox.x = x;
 
         return x;
+
     }
 }

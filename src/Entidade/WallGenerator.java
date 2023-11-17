@@ -14,11 +14,16 @@ public class WallGenerator {
         //walls.add(new Wall(-10,32,900,32));
 
         walls.add(new Wall(166,607,30,59));
+        // NOVA PAREDE
+        walls.add(new Wall(642,358,48,110));
 
         walls.add(new Wall(406,489,32,32));
 
         walls.add(new Wall(1253,673,500,440));
-        walls.add(new Wall(1220,673,50,40));
+        walls.add(new Wall(1253,0,200,440));
+        walls.add(new Wall(1220-7,473,400,40));
+        walls.add(new Wall(1650+11,200,400,32));
+        walls.add(new Wall(1650+43,490,32,64));
 
 
         return walls;

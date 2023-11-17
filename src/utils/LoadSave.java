@@ -16,7 +16,9 @@ public class LoadSave {
     public static final String CANVAS3 = "3.png";
     public static final String CANVAS4 = "4.png";
 
-    public static final String CANVAS_GLOBAL = "proto1.png";
+    public static final String CANVAS_GLOBAL = "proto3.png";
+
+    public static final String vida = "HeartFull.png";
 
 
 

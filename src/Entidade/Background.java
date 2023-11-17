@@ -23,7 +23,7 @@ public class Background {
         background = LoadSave.GetSpriteAtlas(LoadSave.CANVAS_GLOBAL);
     }
     public void draw(Graphics2D gtd){
-        gtd.drawImage(background,x + cameraX ,y,width,height,null);
+        //gtd.drawImage(background,x + cameraX ,y,width,height,null);
 
 
     }

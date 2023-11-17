@@ -22,6 +22,7 @@ public class Player extends Entidade{
     BufferedImage[]  animations_run;
 
     BufferedImage[] animations_run_flipped;
+    BufferedImage img4;
 
     boolean running_right,runnnig_left, idle;
 
@@ -46,6 +47,7 @@ public class Player extends Entidade{
         BufferedImage img = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_IDLE);
         BufferedImage img2 = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_RUN);
         BufferedImage img3 = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_RUN_LEFT);
+        img4 = LoadSave.GetSpriteAtlas(LoadSave.vida);
 
         animations_idle = new BufferedImage[6];
         for(int i = 0; i < animations_idle.length;i++){
@@ -91,7 +93,7 @@ public class Player extends Entidade{
         }
     }
     public void impulse(MouseEvent e){
-        if(e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() <= 1 ){
+        if(e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() == 2 ){
             if(keyUp){
                 yspeed = -8;
                 keyUp = false;
@@ -103,6 +105,10 @@ public class Player extends Entidade{
     public void set() {
         if(y > 900){
             gamePanel.reset();
+            vida = vida - 1;
+            if(vida < 1){
+                vida = 3;
+            }
         }
         setAnimation();
         updateAnimationTick();
@@ -158,6 +164,21 @@ public class Player extends Entidade{
 
     // Método que renderiza o personagem a partir da lógica adequada.
     public void draw(Graphics2D gtd){
+        if(vida == 1) {
+            gtd.drawImage(img4, x - 750, 50, 32, 32, null);
+        }
+        if(vida == 2) {
+            gtd.drawImage(img4, x - 750, 50, 32, 32, null);
+            gtd.drawImage(img4, x - 750 + 32, 50, 32, 32, null);
+
+        }
+        if(vida == 3) {
+            gtd.drawImage(img4, x - 750, 50, 32, 32, null);
+            gtd.drawImage(img4, x - 750 + 32, 50, 32, 32, null);
+            gtd.drawImage(img4, x - 750 + 64,50,32,32,null);
+
+        }
+
         if(running_right){
         gtd.drawImage(animations_run[aniIndex],x,y,60,60,null);
         }

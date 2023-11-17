@@ -71,10 +71,11 @@ public class GamePanel extends JPanel {
         gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS2),0,0,1600,900,null);
 //        gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS3),0+((int)player.xspeed / 8),0,1600,900,null);
         //gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS4),0,0,1600,900,null);
-        player.draw(gtd);
 
+        player.draw(gtd);
         for(Wall wall:walls) wall.draw(gtd);
         background.draw(gtd);
+
     }
     // INTERFACES RESPONSAVEIS PELOS INPUTS DO PLAYER.
     public void keyPressed(KeyEvent e) {

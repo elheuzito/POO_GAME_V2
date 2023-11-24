@@ -24,6 +24,11 @@ public class WallGenerator {
         walls.add(new Wall(1220-7,473,400,40));
         walls.add(new Wall(1650+11,200,400,32));
         walls.add(new Wall(1650+43,490,32,64));
+        walls.add(new Wall(1850+43,200,890,32));
+        walls.add(new Wall(1650+43,300,32,64));
+        walls.add(new Wall(2050+43,0,700,32));
+        walls.add(new Wall(2150,800,150,500));
+        
 
 
         return walls;

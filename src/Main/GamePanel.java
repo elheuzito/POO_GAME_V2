@@ -21,6 +21,7 @@ public class GamePanel extends JPanel {
     private MouseInputs mouseInputs;
     public ArrayList<Wall> walls;
     Player player;
+    int contador = 0;
     public int cameraX;
     Background background;
     // TIME
@@ -49,7 +50,11 @@ public class GamePanel extends JPanel {
                 player.set();
                 background.set();
                 for(Wall wall : walls) {wall.set(cameraX);}
-
+                contador++;
+                if(contador > 30) {
+                    System.out.println(player.toString());
+                    contador = 0;
+                }
                 repaint();
             }
         },0,17);

@@ -26,6 +26,13 @@ public class Player extends Entidade{
 
     boolean running_right,runnnig_left, idle;
 
+    @Override
+    public String toString() {
+        return "Player{" +
+                "xspeed=" + (int)xspeed +
+                ", yspeed=" + (int)yspeed +
+                '}';
+    }
 
     private int aniTick, aniIndex, aniSpeed = 12;
 

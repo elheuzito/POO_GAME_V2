@@ -33,9 +33,9 @@ public class Player extends Entidade{
     @Override
     public String toString() {
         return "Player{" +
-                "xspeed=" + (int)xspeed +
-                ", yspeed=" + (int)yspeed +
-                "vida" + vida +'}';
+                "xspeed= " + (int)xspeed +
+                ", yspeed= " + (int)yspeed +
+                ", vida= " + vida +'}';
     }
 
     private int aniTick, aniIndex, aniSpeed = 12;

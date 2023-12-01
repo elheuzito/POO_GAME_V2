@@ -199,6 +199,7 @@ public class Player extends Entidade{
             gtd.drawImage(img4, x - 750 + 70,50,32,32,null);
 
         }
+        //TELA GAME OVER
         if(gameover == true){
             gtd.drawImage(img5, 0,0,1600,900,null);
         }

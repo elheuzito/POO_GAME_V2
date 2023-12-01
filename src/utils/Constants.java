@@ -9,8 +9,8 @@ public interface Constants {
     String CANVAS1 = "1.png";
     String CANVAS2 = "2.png";
 
-
+    String GAMEOVER = "gameover.png";
     String CANVAS_GLOBAL = "proto3.png";
 
-    String vida = "HeartFull.png";
+    String vida = "heart.png";
 }

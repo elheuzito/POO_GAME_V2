@@ -28,7 +28,9 @@ public class WallGenerator {
         walls.add(new Wall(1650+43,300,32,64));
         walls.add(new Wall(2050+43,0,700,32));
         walls.add(new Wall(2150,800,150,500));
-
+        walls.add(new Wall(2650,358,48,110));
+        walls.add(new Wall(2450,500,32,32));
+        walls.add(new Wall(3000,800,150,500));
 
 
         return walls;

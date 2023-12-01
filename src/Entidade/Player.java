@@ -15,7 +15,7 @@ import java.io.IOException;
 public class Player extends Entidade{
     private GamePanel gamePanel;
     Rectangle hitbox;
-    int vida;
+    public int vida;
 
 
     BufferedImage[]  animations_idle;
@@ -24,14 +24,18 @@ public class Player extends Entidade{
     BufferedImage[] animations_run_flipped;
     BufferedImage img4;
 
-    boolean running_right,runnnig_left, idle;
+    boolean running_right;
+    boolean runnnig_left;
+    boolean idle;
+    public boolean gameover = false;
+    private BufferedImage img5;
 
     @Override
     public String toString() {
         return "Player{" +
                 "xspeed=" + (int)xspeed +
                 ", yspeed=" + (int)yspeed +
-                '}';
+                "vida" + vida +'}';
     }
 
     private int aniTick, aniIndex, aniSpeed = 12;
@@ -55,6 +59,7 @@ public class Player extends Entidade{
         BufferedImage img2 = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_RUN);
         BufferedImage img3 = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_RUN_LEFT);
         img4 = LoadSave.GetSpriteAtlas(LoadSave.vida);
+        img5 = LoadSave.GetSpriteAtlas(LoadSave.GAMEOVER);
 
         animations_idle = new BufferedImage[6];
         for(int i = 0; i < animations_idle.length;i++){
@@ -114,11 +119,17 @@ public class Player extends Entidade{
             gamePanel.reset();
             vida = vida - 1;
             if(vida < 1){
-                vida = 3;
+                gameover = true;
             }
         }
         setAnimation();
         updateAnimationTick();
+        if(gameover == true){
+            xspeed = 0;
+            yspeed = 0;
+            x = 0;
+            y = 0;
+        }
         if(keyLeft && keyRight || !keyLeft && !keyRight) xspeed *= 0.8;
         else if (keyLeft && !keyRight) xspeed--;
         else if (keyRight && !keyLeft) xspeed++;
@@ -171,19 +182,25 @@ public class Player extends Entidade{
 
     // Método que renderiza o personagem a partir da lógica adequada.
     public void draw(Graphics2D gtd){
+        if(gameover == true){
+            gtd.drawImage(img5, 0,0,1600,900,null);
+        } else {
         if(vida == 1) {
             gtd.drawImage(img4, x - 750, 50, 32, 32, null);
         }
         if(vida == 2) {
             gtd.drawImage(img4, x - 750, 50, 32, 32, null);
-            gtd.drawImage(img4, x - 750 + 32, 50, 32, 32, null);
+            gtd.drawImage(img4, x - 750 + 35, 50, 32, 32, null);
 
         }
         if(vida == 3) {
             gtd.drawImage(img4, x - 750, 50, 32, 32, null);
-            gtd.drawImage(img4, x - 750 + 32, 50, 32, 32, null);
-            gtd.drawImage(img4, x - 750 + 64,50,32,32,null);
+            gtd.drawImage(img4, x - 750 + 35, 50, 32, 32, null);
+            gtd.drawImage(img4, x - 750 + 70,50,32,32,null);
 
+        }
+        if(gameover == true){
+            gtd.drawImage(img5, 0,0,1600,900,null);
         }
 
         if(running_right){
@@ -195,5 +212,5 @@ public class Player extends Entidade{
         if(idle){
             gtd.drawImage(animations_idle[aniIndex],x,y,60,60,null);
         }
-}
+}}
 }

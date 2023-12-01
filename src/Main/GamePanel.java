@@ -2,7 +2,6 @@ package Main;
 
 import Entidade.Background;
 import Entidade.Player;
-import Entidade.Projetil;
 import Entidade.Wall;
 import Inputs.MouseInputs;
 import utils.LoadSave;
@@ -47,7 +46,9 @@ public class GamePanel extends JPanel {
                 // LOGICA DE MOVIMENTO E COLISÃO DO PERSONAGEM
 //                projetil.projetilSet();
 //                projetil1.projetilSet();
+
                 player.set();
+
                 background.set();
                 for(Wall wall : walls) {wall.set(cameraX);}
                 contador++;
@@ -76,8 +77,9 @@ public class GamePanel extends JPanel {
         gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS1),0,0,1600,900,null);
         gtd.drawImage(LoadSave.GetSpriteAtlas(LoadSave.CANVAS2),0,0,1600,900,null);
 
-        player.draw(gtd);
+
         for(Wall wall:walls) wall.draw(gtd);
+        player.draw(gtd);
         background.draw(gtd);
 
     }
@@ -87,6 +89,11 @@ public class GamePanel extends JPanel {
         if(e.getKeyChar()=='d') player.keyRight = true;
         if(e.getKeyChar()=='w') player.keyUp = true;
         if(e.getKeyChar()=='s') player.keyDown = true;
+        if(e.getKeyChar()=='r') {
+            player.gameover = false;
+            reset();
+            player.vida = 3;
+        }
     }
 
     public void keyReleased(KeyEvent e) {

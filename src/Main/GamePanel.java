@@ -56,6 +56,7 @@ public class GamePanel extends JPanel {
                     System.out.println(player.toString());
                     contador = 0;
                 }
+
                 repaint();
             }
         },0,17);
@@ -81,6 +82,7 @@ public class GamePanel extends JPanel {
         for(Wall wall:walls) wall.draw(gtd);
         player.draw(gtd);
         background.draw(gtd);
+        repaint();
 
     }
     // INTERFACES RESPONSAVEIS PELOS INPUTS DO PLAYER.

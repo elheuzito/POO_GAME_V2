@@ -48,16 +48,15 @@ public class GamePanel extends JPanel {
 //                projetil1.projetilSet();
 
                 player.set();
-
                 background.set();
-                for(Wall wall : walls) {wall.set(cameraX);}
                 contador++;
+                for(Wall wall : walls) {wall.set(cameraX);}
                 if(contador > 30) {
                     System.out.println(player.toString());
                     contador = 0;
                 }
-
                 repaint();
+
             }
         },0,17);
     }
@@ -82,7 +81,6 @@ public class GamePanel extends JPanel {
         for(Wall wall:walls) wall.draw(gtd);
         player.draw(gtd);
         background.draw(gtd);
-        repaint();
 
     }
     // INTERFACES RESPONSAVEIS PELOS INPUTS DO PLAYER.

@@ -1,6 +1,6 @@
 package Entidade;
 
-import Entidade.Wall;
+
 import java.util.ArrayList;
 
 public class WallGenerator {

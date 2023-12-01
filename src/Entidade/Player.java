@@ -1,15 +1,14 @@
 package Entidade;
 
 import Main.GamePanel;
-import Main.Main;
+
 import utils.LoadSave;
 
-import javax.imageio.ImageIO;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.File;
+
 import java.io.IOException;
 
 public class Player extends Entidade{
@@ -45,7 +44,7 @@ public class Player extends Entidade{
     public boolean keyRight;
     public boolean keyUp;
     public boolean keyDown;
-    public Player(int x, int y, int height, int width, GamePanel gamePanel, double xspeed, double yspeed) throws IOException {
+    public Player(int x, int y, int height, int width, GamePanel gamePanel, double xspeed, double yspeed) {
         super(x, y, height, width, gamePanel,xspeed,yspeed);
         this.gamePanel = gamePanel;
         vida = 3;
@@ -182,7 +181,7 @@ public class Player extends Entidade{
 
     // Método que renderiza o personagem a partir da lógica adequada.
     public void draw(Graphics2D gtd){
-        if(gameover == true){
+        if(gameover){
             gtd.drawImage(img5, 0,0,1600,900,null);
         } else {
         if(vida == 1) {
@@ -200,7 +199,7 @@ public class Player extends Entidade{
 
         }
         //TELA GAME OVER
-        if(gameover == true){
+        if(gameover){
             gtd.drawImage(img5, 0,0,1600,900,null);
         }
 
